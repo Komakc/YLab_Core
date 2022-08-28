@@ -1,10 +1,14 @@
 package task1;
 
+import java.util.Arrays;
+
+import static java.lang.System.currentTimeMillis;
+
 public class Main {
     public static void main(String[] args) {
         final int SIZE_ARRAY = 5;
         int[][] arrayNumber = new int[SIZE_ARRAY][SIZE_ARRAY];
-        getArrayRandomNumber(arrayNumber);
+        getArrayWithRandomNumber(arrayNumber);
         printArray(arrayNumber);
         int maxNumber = getMaxNumber(arrayNumber);
         int minNumber = getMinNumber(arrayNumber);
@@ -12,10 +16,15 @@ public class Main {
         System.out.printf("Max number: %d\nMin number: %d\nAverage number: %d", maxNumber, minNumber, averageNumber);
     }
 
-    static void getArrayRandomNumber(int[][] array) {
+    static void getArrayWithRandomNumber(int[][] array) {
+        int randomNumber = 1;
+        int time = (int) System.currentTimeMillis();
+        int a = 44;
+        int m = 12345;
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
-                array[i][j] = (int) (Math.random() * 100);
+                randomNumber = (a * randomNumber - time) % m;
+                array[i][j] = randomNumber;
             }
         }
     }
