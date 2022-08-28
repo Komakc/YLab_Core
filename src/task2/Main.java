@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        int[] array = {5,6,3,2,5,1,4,9};
+        int[] array = {5, 6, 3, 2, 5, 1, 4, 9};
         arraySort(array);
         try {
             testAssert(array);
@@ -21,17 +21,17 @@ public class Main {
         int temp;
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array.length - i - 1; j++) {
-                if (array[j] > array[j+1]) {
-                    temp = array[j+1];
-                    array[j+1] = array[j];
+                if (array[j] > array[j + 1]) {
+                    temp = array[j + 1];
+                    array[j + 1] = array[j];
                     array[j] = temp;
                 }
             }
         }
     }
 
-    static void testAssert(int[] array) throws AssertionError{
-        int[] arrAssert = {1,2,3,4,5,5,6,9};
+    static void testAssert(int[] array) throws AssertionError {
+        int[] arrAssert = {1, 2, 3, 4, 5, 5, 6, 9};
         boolean isSort = Arrays.equals(array, arrAssert);
         assert isSort;
     }
