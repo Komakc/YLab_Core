@@ -1,9 +1,5 @@
 package task1;
 
-import java.util.Arrays;
-
-import static java.lang.System.currentTimeMillis;
-
 public class Main {
     public static void main(String[] args) {
         final int SIZE_ARRAY = 5;
@@ -12,8 +8,8 @@ public class Main {
         printArray(arrayNumber);
         int maxNumber = getMaxNumber(arrayNumber);
         int minNumber = getMinNumber(arrayNumber);
-        int averageNumber = (maxNumber - minNumber) / 2;
-        System.out.printf("Max number: %d\nMin number: %d\nAverage number: %d", maxNumber, minNumber, averageNumber);
+        double averageNumber = getAvgNumber(arrayNumber);
+        System.out.printf("Max number: %d\nMin number: %d\nAverage number: %.2f", maxNumber, minNumber, averageNumber);
     }
 
     static void getArrayWithRandomNumber(int[][] array) {
@@ -60,5 +56,17 @@ public class Main {
             }
         }
         return min;
+    }
+
+    static double getAvgNumber(int[][] array) {
+        int count = 0;
+        int sum = 0;
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                sum += array[i][j];
+                count++;
+            }
+        }
+        return (double) sum / count;
     }
 }
